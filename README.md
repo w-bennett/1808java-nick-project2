@@ -15,6 +15,9 @@ Regular users can write new comments in Edit thread and upvote/downvote other co
 Certified engineers can move appropriate Edit thread comments into the corresponding Main wiki article. CEs can award a star to a post. Two CEs can promote a helpful active regular user to a CE. CEs can override the comment ranking system and pin their reply to a comment to show first, in order to increase signal to noise. CEs can edit the data dependencies but need final approval from a GE for the change to take effect.
 
 Global engineers can modify knowledge tree structure by creating and deleting new articles and data links. GEs can delete bad comments. GEs can pin their replies to a comment and rank over CE pinned comments.  Two GEs can promote a CE to GE.
+
 Website Logic
 
-Real time price of commodities fetched from open source APIs and propagate through dependent data. Make supply chain of ingredients with live prices update through to consumer goods automatically. If energy price rises from 7 to 8 cents/kwh, price per kg of aluminum having energy in supply chain should reflect update too.
+Real time price of commodities fetched from open source APIs and propagate through dependent data. 
+Make supply chain of ingredients with live prices update through to consumer goods automatically.
+If energy price rises from 7 to 8 cents/kwh, price per kg of aluminum having energy in supply chain should reflect update too.
