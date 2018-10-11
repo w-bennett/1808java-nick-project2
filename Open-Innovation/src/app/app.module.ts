@@ -5,11 +5,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { BannerVisitorComponent } from './banner-visitor/banner-visitor.component';
+import { LoginModalComponent } from './login-modal/login-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BannerVisitorComponent
+    BannerVisitorComponent,
+    LoginModalComponent
   ],
   imports: [
     BrowserModule,
