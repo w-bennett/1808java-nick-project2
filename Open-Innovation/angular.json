@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-open-innovation": {
+    "Open-Innovation": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-open-innovation",
+            "outputPath": "dist/Open-Innovation",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -50,18 +50,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-open-innovation:build"
+            "browserTarget": "Open-Innovation:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-open-innovation:build:production"
+              "browserTarget": "Open-Innovation:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-open-innovation:build"
+            "browserTarget": "Open-Innovation:build"
           }
         },
         "test": {
@@ -95,7 +95,7 @@
         }
       }
     },
-    "angular-open-innovation-e2e": {
+    "Open-Innovation-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -103,11 +103,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular-open-innovation:serve"
+            "devServerTarget": "Open-Innovation:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "angular-open-innovation:serve:production"
+              "devServerTarget": "Open-Innovation:serve:production"
             }
           }
         },
@@ -123,5 +123,5 @@
       }
     }
   },
-  "defaultProject": "angular-open-innovation"
+  "defaultProject": "Open-Innovation"
 }
