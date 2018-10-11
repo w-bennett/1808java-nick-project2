@@ -23,7 +23,7 @@ public class UserService implements UserServiceInt {
 		log.info("Username passed into validate: " + user.getUsername());
 		log.info("Password passed into validate: " + user.getPassword());
 		
-		if(userDao.login(user) == null) {
+		if(userDao.login(user) != null) {
 			authUser = user;
 		}
 		
