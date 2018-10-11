@@ -1,14 +1,37 @@
 package com.revature.pojo;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "users")
 public class User {
 	
+	@Id
+	@Column(name = "userid", nullable = false)
 	private Integer userid;
+	
+	@Column(name = "username", nullable = false)
 	private String username;
+	
+	@Column(name = "password", nullable = false)
 	private String password;
+	
+	@Column(name = "role", nullable = false)
 	private String role;
+	
+	@Column(name = "email", nullable = false)
 	private String email;
+	
+	@Column(name = "upvotes", nullable = false)
 	private Integer upvotes;
+	
+	@Column(name = "downvotes", nullable = false)
 	private Integer downvotes;
+	
+	@Column(name = "stars", nullable = false)
 	private Integer stars;
 	
 	public User() {

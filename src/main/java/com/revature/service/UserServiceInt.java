@@ -4,6 +4,6 @@ import com.revature.pojo.User;
 
 public interface UserServiceInt {
 
-	public User validateUser(User user);
+	public User login(User user);
 	
 }
