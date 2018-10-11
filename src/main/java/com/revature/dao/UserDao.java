@@ -11,8 +11,15 @@ public class UserDao implements UserDaoInt {
 
 	@Autowired
 	private SessionFactory sessionFactory;
-
 	
+	public SessionFactory getSessionFactory() {
+		return sessionFactory;
+	}
+
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
+
 	@Override
 	public User login(User user) {
 		// TODO Auto-generated method stub

@@ -20,8 +20,8 @@ public class UserService implements UserServiceInt {
 		// TODO Auto-generated method stub
 		
 		User authUser = null;
-		log.info("Username passed into validate: " + user.getUsername());
-		log.info("Password passed into validate: " + user.getPassword());
+		log.info("Logging in User: " + user.getUsername());
+		//log.info("Validating Password: " + user.getPassword());
 		
 		if(userDao.login(user) != null) {
 			authUser = user;
