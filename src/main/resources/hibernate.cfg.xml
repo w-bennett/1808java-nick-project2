@@ -11,7 +11,7 @@
 			org.postgresql.Driver
 		</property>
 		<property name="hibernate.connection.url">
-			jdbc:postgresql://rev-test-database.c6grlb79acri.us-east-2.rds.amazonaws.com:5432/testdb?;
+			jdbc:postgresql://rev-test-database.c6grlb79acri.us-east-2.rds.amazonaws.com:5432/testdb?
 		</property>
 		<property name="hibernate.connection.username">
 			arisadmin
