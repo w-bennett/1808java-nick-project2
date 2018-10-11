@@ -21,9 +21,6 @@ public class LoginTest {
 	@Mock
     private Session sess;
 	
-	@Mock
-	private SessionFactory sessF;
-	
 	UserDao userDao = new UserDao();
 	User user;
     
@@ -41,8 +38,7 @@ public class LoginTest {
     	this.user = new User(1, "tadrill", "tadpole", "ge", "no@gmail.com", 0, 0, 0);
         MockitoAnnotations.initMocks(this);
         when(sess.get(User.class, "tadrill")).thenReturn(user);
-        when(sessF.getCurrentSession()).thenReturn(sess);
-        userDao.setSessionFactory(sessF);
+        userDao.setCurrentSession(sess);
     }
 
     

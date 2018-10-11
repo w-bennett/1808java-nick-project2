@@ -1,23 +1,25 @@
 package com.revature.service;
 
 import org.jboss.logging.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
+import com.revature.dao.UserDao;
 import com.revature.dao.UserDaoInt;
 import com.revature.pojo.User;
 
-@Service
+
 public class UserService implements UserServiceInt {
 	
-	@Autowired
-	UserDaoInt userDao;
-	
+	private static UserDaoInt userDao;
 	Logger log = Logger.getLogger(UserService.class);
+	
+	public UserService(){
+		userDao = new UserDao();
+	}
 
 	@Override
 	public User login(User user) {
 		// TODO Auto-generated method stub
+		((UserDao) userDao).openCurrentSessionwithTransaction();
 		
 		User authUser = null;
 		log.info("Logging in User: " + user.getUsername());
@@ -27,6 +29,7 @@ public class UserService implements UserServiceInt {
 			authUser = user;
 		}
 		
+		((UserDao) userDao).closeCurrentSessionwithTransaction();
 		return authUser;
 	}
 

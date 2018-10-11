@@ -1,29 +1,72 @@
 package com.revature.dao;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.hibernate.Transaction;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
 
 import com.revature.pojo.User;
 
-@Repository("UserDaoInt")
 public class UserDao implements UserDaoInt {
 
-	@Autowired
-	private SessionFactory sessionFactory;
+	private Session currentSession;
+	private Transaction currentTransaction;
+
+	public UserDao() {
 	
-	public SessionFactory getSessionFactory() {
-		return sessionFactory;
 	}
 
-	public void setSessionFactory(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
+	public Session openCurrentSession() {
+		currentSession = getSessionFactory().openSession();
+		return currentSession;
+
+	}
+
+	public Session openCurrentSessionwithTransaction() {
+		currentSession = getSessionFactory().openSession();
+		currentTransaction = (Transaction) currentSession.beginTransaction();
+		return currentSession;
+
+	}
+
+	public void closeCurrentSession() {
+		currentSession.close();
+	}
+
+	public void closeCurrentSessionwithTransaction() {
+		currentTransaction.commit();
+		currentSession.close();
+	}
+
+	private static SessionFactory getSessionFactory() {
+		Configuration configuration = new Configuration().configure();
+		StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder()
+				.applySettings(configuration.getProperties());
+		SessionFactory sessionFactory = configuration.buildSessionFactory(builder.build());
+		return sessionFactory;
+	}
+	
+	public Session getCurrentSession() {
+		return currentSession;
+	}
+	
+	public void setCurrentSession(Session currentSession) {
+		this.currentSession = currentSession;
+	}
+
+	public Transaction getCurrentTransaction() {
+		return currentTransaction;
+	}
+
+	public void setCurrentTransaction(Transaction currentTransaction) {
+		this.currentTransaction = currentTransaction;
 	}
 
 	@Override
 	public User login(User user) {
 		// TODO Auto-generated method stub
-		return (User) sessionFactory.getCurrentSession().get(User.class, user.getUsername());
+		return (User) getCurrentSession().get(User.class, user.getUsername());
 	}
 
 }
