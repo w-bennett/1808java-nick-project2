@@ -12,6 +12,11 @@ public class SessionUtil {
 	private static SessionFactory sessionFactory;
 	
 	static {
+		try {
+			Class.forName("org.postgresql.Driver");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
 		StandardServiceRegistry standardRegistry =
 				new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();
 		Metadata metaData = 
