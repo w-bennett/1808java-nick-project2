@@ -65,7 +65,6 @@ public class UserDao implements UserDaoInt {
 
 	@Override
 	public User login(User user) {
-		// TODO Auto-generated method stub
 		return (User) getCurrentSession().get(User.class, user.getUsername());
 	}
 

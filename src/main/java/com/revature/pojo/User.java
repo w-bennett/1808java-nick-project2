@@ -6,32 +6,32 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "user")
+@Table(name="user")
 public class User {
 	
 	@Id
-	@Column(name = "userid", nullable = false)
+	@Column(name="userid", nullable=false)
 	private Integer userid;
 	
-	@Column(name = "username", nullable = false)
+	@Column(name="username", nullable=false)
 	private String username;
 	
-	@Column(name = "password", nullable = false)
+	@Column(name="password", nullable=false)
 	private String password;
 	
-	@Column(name = "role", nullable = false)
+	@Column(name="role", nullable=false)
 	private String role;
 	
-	@Column(name = "email", nullable = false)
+	@Column(name="email", nullable=false)
 	private String email;
 	
-	@Column(name = "upvotes", nullable = false)
+	@Column(name="upvotes", nullable=false)
 	private Integer upvotes;
 	
-	@Column(name = "downvotes", nullable = false)
+	@Column(name="downvotes", nullable=false)
 	private Integer downvotes;
 	
-	@Column(name = "stars", nullable = false)
+	@Column(name="stars", nullable=false)
 	private Integer stars;
 	
 	public User() {

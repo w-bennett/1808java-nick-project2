@@ -15,7 +15,6 @@ public class UserService implements UserServiceInt {
 
 	@Override
 	public User login(User user) {
-		// TODO Auto-generated method stub
 		((UserDao) userDao).openCurrentSession();
 		
 		User authUser = null;
