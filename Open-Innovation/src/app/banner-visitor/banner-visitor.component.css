@@ -1,0 +1,20 @@
+body {
+    background-color: #636e72;
+    background-image: url(http://cdn.backgroundhost.com/backgrounds/subtlepatterns/use_your_illusion.png);
+}
+
+#div1 {
+    background-color: #070707;
+    background-image: url("bannerbg1.jpg");
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: contain;
+    text-align: center;
+    padding: 20px;
+    border-bottom: 8px solid #c23616;
+    color: azure;
+}
+
+a {
+    color: #c23616;
+}
