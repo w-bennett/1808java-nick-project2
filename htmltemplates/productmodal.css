@@ -1,3 +1,11 @@
 #divprod {
-    
+    width: 968px;
+    margin: 100px auto;
+    background-color: #f1ebe9;
+    border: 3px solid #b34848;
+    padding: 30px;
+}
+
+a {
+    color: #c23616;
 }
