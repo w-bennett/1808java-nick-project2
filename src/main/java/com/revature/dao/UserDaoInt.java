@@ -3,5 +3,6 @@ package com.revature.dao;
 import com.revature.pojo.User;
 
 public interface UserDaoInt {
-	public User login(User user);
+	public User login(Integer userid);
+	public Integer getUserId(User user);
 }

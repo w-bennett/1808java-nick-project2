@@ -17,10 +17,12 @@ public class UserService implements UserServiceInt {
 	public User login(User user) {
 		((UserDao) userDao).openCurrentSession();
 		
+		Integer userid = userDao.getUserId(user);
+		
 		User authUser = null;
 		
-		if(userDao.login(user) != null) {
-			authUser = user;
+		if(userDao.login(userid) != null) {
+			authUser = userDao.login(userid);
 		}
 		
 		((UserDao) userDao).closeCurrentSession();

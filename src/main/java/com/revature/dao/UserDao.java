@@ -1,12 +1,16 @@
 package com.revature.dao;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
 import com.revature.pojo.User;
+import com.revature.util.SessionUtil;
 
 public class UserDao implements UserDaoInt {
 
@@ -48,7 +52,8 @@ public class UserDao implements UserDaoInt {
 	}
 	
 	public Session getCurrentSession() {
-		return currentSession;
+		Session sess = SessionUtil.getSession();
+		return sess;
 	}
 	
 	public void setCurrentSession(Session currentSession) {
@@ -64,8 +69,28 @@ public class UserDao implements UserDaoInt {
 	}
 
 	@Override
-	public User login(User user) {
-		return (User) getCurrentSession().get(User.class, user.getUsername());
+	public User login(Integer userid) {
+		return (User) getCurrentSession().get(User.class, userid);
 	}
+
+	@Override
+	public Integer getUserId(User user) {
+		Session sess = getCurrentSession();
+		String hql = "FROM User WHERE username = :un AND password = :pw";
+		Query query = sess.createQuery(hql);
+		query.setParameter("un", user.getUsername());
+		query.setParameter("pw", user.getPassword());
+
+		
+		
+		List<User> users = query.list();
+		if(!users.isEmpty()) {
+			User user2 = users.get(0);
+			return user2.getUserid();
+		}
+		else
+			return null;
+	}
+	
 
 }
