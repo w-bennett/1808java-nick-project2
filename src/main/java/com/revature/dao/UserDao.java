@@ -89,7 +89,7 @@ public class UserDao implements UserDaoInt {
 			return user2.getUserid();
 		}
 		else
-			return null;
+			return 0;
 	}
 	
 
