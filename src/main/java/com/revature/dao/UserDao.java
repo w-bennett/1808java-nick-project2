@@ -68,12 +68,12 @@ public class UserDao implements UserDaoInt {
 		this.currentTransaction = currentTransaction;
 	}
 
-	@Override
+	
 	public User login(Integer userid) {
 		return (User) getCurrentSession().get(User.class, userid);
 	}
 
-	@Override
+	
 	public Integer getUserId(User user) {
 		Session sess = getCurrentSession();
 		String hql = "FROM User WHERE username = :un AND password = :pw";

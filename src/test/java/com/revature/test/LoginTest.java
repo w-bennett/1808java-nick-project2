@@ -1,10 +1,10 @@
 package com.revature.test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;
 
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -49,8 +49,7 @@ public class LoginTest {
     
     @Test
     public void test() {
-    	Integer userid = 1;
-        User authUser = userDao.login(userid);
+        User authUser = userDao.login(user.getUserid());
         System.out.println(authUser);
         assertTrue("tadrill".equals(authUser.getUsername()));
         assertTrue("tadrill".equals(authUser.getPassword()));
