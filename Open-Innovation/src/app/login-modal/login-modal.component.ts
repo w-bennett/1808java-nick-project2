@@ -24,7 +24,18 @@ export class LoginModalComponent implements OnInit {
     const u = new User(this.user, this.pass);
     console.log(u);
 
-    this.loginService.postLogin(u).subscribe();
+    this.loginService.postLogin(u).subscribe(data => this.navigate(data));
+    // console.log(u2);
+  }
+
+  testPrint(user2: User): void {
+    console.log(user2);
+  }
+
+  navigate(user3: User): void {
+    if (user3.role === 'ge') {
+        location.replace('');
+    }
   }
 
 }
