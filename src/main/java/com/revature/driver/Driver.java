@@ -14,13 +14,20 @@ public class Driver {
 
 	public static void main(String[] args) {
 		UserServiceInt userService = new UserService();
+		String un = "tadrill";
+		String pw = "tadrill";
+		Integer userid = 1;
+		
 		User user = new User();
-		user.setUsername("tad");
+		user.setPassword(pw);
+		user.setUsername(un);
+		
 		System.out.println(userService.login(user).toString());
 		
 //		Session sess = SessionUtil.getSession();
-//		Query query2 = sess.createNativeQuery("SELECT * FROM \"user\"");
-//		List<User> users = query2.getResultList();
+//		String hql = "FROM User";
+//		Query query = sess.createQuery(hql);
+//		List<User> users = query.list();
 //		System.out.println(users);
 	}
 
