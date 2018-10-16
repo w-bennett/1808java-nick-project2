@@ -1,10 +1,10 @@
 package com.revature.test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;
 
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -37,7 +37,7 @@ public class LoginTest {
     public void setUp() throws Exception {
     	this.user = new User(1, "tadrill", "tadpole", "ge", "no@gmail.com", 0, 0, 0);
         MockitoAnnotations.initMocks(this);
-        when(sess.get(User.class, "tadrill")).thenReturn(user);
+        when(sess.get(User.class, 1)).thenReturn(user);
         userDao.setCurrentSession(sess);
     }
 
@@ -49,10 +49,10 @@ public class LoginTest {
     
     @Test
     public void test() {
-        User authUser = userDao.login(user);
+        User authUser = userDao.login(user.getUserid());
         System.out.println(authUser);
         assertTrue("tadrill".equals(authUser.getUsername()));
-        assertTrue("tadpole".equals(authUser.getPassword()));
+        assertTrue("tadrill".equals(authUser.getPassword()));
         assertFalse("visitor".equals(authUser.getRole()));
     }
 }
