@@ -2,15 +2,18 @@ package com.revature.pojo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="user")
+@Table(name="engineers")
 public class User {
 	
 	@Id
 	@Column(name="userid", nullable=false)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer userid;
 	
 	@Column(name="username", nullable=false)
