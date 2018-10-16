@@ -1,0 +1,15 @@
+#registerButton {
+    background-color: #c23616;
+}
+
+#divreg {
+    background-color:#ffa99e;
+    width: 400px;
+    margin: 100px auto;
+    padding: 30px;
+    border-bottom: 4px solid #161616;
+}
+
+a {
+    color: #c23616;
+}

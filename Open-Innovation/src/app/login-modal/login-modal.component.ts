@@ -33,9 +33,7 @@ export class LoginModalComponent implements OnInit {
   }
 
   navigate(user3: User): void {
-    if (user3.role === 'ge') {
-        location.replace('');
-    }
+    location.replace('');
   }
-
 }
+

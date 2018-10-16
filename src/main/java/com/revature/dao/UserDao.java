@@ -91,6 +91,10 @@ public class UserDao implements UserDaoInt {
 		else
 			return 0;
 	}
+
+	public void register(User user) {
+		getCurrentSession().save(user);
+	}
 	
 
 }

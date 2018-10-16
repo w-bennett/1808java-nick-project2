@@ -9,12 +9,14 @@ import { AppComponent } from './app.component';
 import { BannerVisitorComponent } from './banner-visitor/banner-visitor.component';
 import { LoginModalComponent } from './login-modal/login-modal.component';
 import { AppRoutingModule } from './app-routing.module';
+import { RegisterModalComponent } from './register-modal/register-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BannerVisitorComponent,
-    LoginModalComponent
+    LoginModalComponent,
+    RegisterModalComponent
   ],
   imports: [
     BrowserModule,
