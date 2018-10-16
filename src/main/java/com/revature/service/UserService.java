@@ -27,4 +27,12 @@ public class UserService implements UserServiceInt {
 		return authUser;
 	}
 
+	public void register(User user) {
+		((UserDao) userDao).openCurrentSession();
+		
+		userDao.register(user);
+		
+		((UserDao) userDao).closeCurrentSession();
+	}
+
 }
