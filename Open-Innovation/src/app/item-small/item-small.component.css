@@ -1,0 +1,9 @@
+#smallbox1 {
+    margin: 100px auto;
+    color: white;
+    width: 180px;
+    border: 2px solid grey;
+    padding: 8px;
+    text-align: center;
+    vertical-align: middle;
+}
