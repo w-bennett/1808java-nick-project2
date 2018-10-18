@@ -34,13 +34,15 @@ export class BannerVisitorComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.fetchFunc();
-    this.loginService.currentMessage.subscribe(message => { this.message = message; } );
+    this.fetchFunc();
+    // this.loginService.currentMessage.subscribe(message => { this.message = message; } );
     // this.postUser().subscribe(data => this.upFunc(data));
-    console.log(this.loginService.currentMessage);
+    // console.log(this.loginService.currentMessage);
   }
 
   fetchFunc(): void {
+    this.username2 = sessionStorage.getItem('usernameStorage');
+    this.role2 = sessionStorage.getItem('roleStorage');
   }
 
   postUser(): Observable<User> {

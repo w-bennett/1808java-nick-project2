@@ -39,8 +39,13 @@ export class LoginModalComponent implements OnInit {
 
   navigate(user3: User): void {
     console.log(user3.username + ' ' + user3.role);
-    this.loginService.changeMessage(user3.username + ' ' + user3.role);
-    console.log(this.loginService.currentMessage);
+    sessionStorage.setItem('usernameStorage', user3.username);
+    sessionStorage.setItem('roleStorage', user3.role);
+    console.log(localStorage.getItem('usernameStorage'));
+    console.log(localStorage.getItem('roleStorage'));
+
+    // this.loginService.changeMessage(user3.username + ' ' + user3.role);
+    // console.log(this.loginService.currentMessage);
     location.replace('');
   }
 }

@@ -28,12 +28,13 @@ public class LoginCtrl {
 		
 		UserServiceInt userService = new UserService();
 		// System.out.println(userService.login(user).toString());
-		sess.setAttribute("role", userService.login(user).getRole());
-		sess.setAttribute("username", userService.login(user).getUsername());
-		System.out.println(sess.getAttribute("role"));
-		System.out.println(sess.getAttribute("username"));
+		User user2 = userService.login(user);
+//		sess.setAttribute("role", userService.login(user).getRole());
+//		sess.setAttribute("username", userService.login(user).getUsername());
+//		System.out.println(sess.getAttribute("role"));
+//		System.out.println(sess.getAttribute("username"));
 		ObjectMapper om = new ObjectMapper();
-		return om.writeValueAsString(userService.login(user));
+		return om.writeValueAsString(user2);
 	}
 
 }
