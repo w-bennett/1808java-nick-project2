@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { TreeShellComponent } from './tree-shell/tree-shell.component';
 import { ItemSmallComponent } from './item-small/item-small.component';
 import { ItemBigComponent } from './item-big/item-big.component';
+import { ModalBasicComponent } from './modal-basic/modal-basic.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ItemBigComponent } from './item-big/item-big.component';
     HomeComponent,
     TreeShellComponent,
     ItemSmallComponent,
-    ItemBigComponent
+    ItemBigComponent,
+    ModalBasicComponent
   ],
   imports: [
     BrowserModule,

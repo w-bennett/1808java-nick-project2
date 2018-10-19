@@ -1,30 +1,20 @@
 import { Component, OnInit } from '@angular/core';
+
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-item-small',
-  templateUrl: './item-small.component.html',
-  styleUrls: ['./item-small.component.css']
+  selector: 'app-modal-basic',
+  templateUrl: './modal-basic.component.html',
+  styleUrls: ['./modal-basic.component.css']
 })
-export class ItemSmallComponent implements OnInit {
+export class ModalBasicComponent implements OnInit {
 
   closeResult: string;
-  discussValue =  '';
 
   ngOnInit() {
   }
 
   constructor(private modalService: NgbModal) {}
-
-  showDiscussFunc(): void {
-    this.discussValue = 'true';
-    // document.getElementById('discuss').style.display = 'visible';
-  }
-
-  hiddenDiscussFunc(): void {
-    this.discussValue = '';
-    // document.getElementById('discuss').style.display = 'visible';
-  }
 
   open(content) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
@@ -43,5 +33,4 @@ export class ItemSmallComponent implements OnInit {
       return  `with: ${reason}`;
     }
   }
-
 }

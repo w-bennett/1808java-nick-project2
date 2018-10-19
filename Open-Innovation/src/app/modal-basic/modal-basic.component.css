@@ -1,5 +1,5 @@
 #divButton {
-    margin: 100px auto;
+    margin: 300px auto;
     /* background-color: black; */
     display: flex;
     align-items: center;
@@ -8,8 +8,4 @@
 
 #button1 {
 
-}
-
-#discuss {
-    display: hidden;
 }
