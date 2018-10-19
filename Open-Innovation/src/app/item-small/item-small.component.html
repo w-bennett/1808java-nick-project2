@@ -19,7 +19,11 @@
     <div class="modal-body">
       Comments go here
     </div>
+    <div class="input-group">
+      <input id="commentArea1" type="text" class="form-control" placeholder="Comment textarea">
+    </div>
     <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="addCommentFunc()">Add Comment</button>
       <button type="button" class="btn btn-outline-dark" (click)="hiddenDiscussFunc()">Hide Discussion</button>
     </div>
   </div>
@@ -27,7 +31,8 @@
 </ng-template>
 
 <div id="divButton">
-  <button id="button1" class="btn btn-lg btn-outline-primary" (click)="open(content)">Energy! <br>
+  <button id="button1" class="btn btn-lg btn-outline-danger" (click)="open(content)">
+    <h4>Energy</h4>
     7 cents/kwh
   </button>
 </div>
