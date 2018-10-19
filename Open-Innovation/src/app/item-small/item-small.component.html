@@ -20,7 +20,7 @@
       Comments go here
     </div>
     <div class="input-group">
-      <input id="commentArea1" type="text" class="form-control" placeholder="Comment textarea">
+      <input id="commentArea1" type="text" class="form-control" placeholder="Comment textarea" [(ngModel)]="commentValue">
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-outline-dark" (click)="addCommentFunc()">Add Comment</button>

@@ -10,6 +10,7 @@ export class ItemSmallComponent implements OnInit {
 
   closeResult: string;
   discussValue =  '';
+  commentValue = '';
 
   ngOnInit() {
   }
@@ -24,6 +25,10 @@ export class ItemSmallComponent implements OnInit {
   hiddenDiscussFunc(): void {
     this.discussValue = '';
     // document.getElementById('discuss').style.display = 'visible';
+  }
+
+  addCommentFunc(): void {
+    // console.log(this.commentValue);
   }
 
   open(content) {

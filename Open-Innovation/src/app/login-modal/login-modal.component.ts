@@ -41,8 +41,6 @@ export class LoginModalComponent implements OnInit {
     console.log(user3.username + ' ' + user3.role);
     sessionStorage.setItem('usernameStorage', user3.username);
     sessionStorage.setItem('roleStorage', user3.role);
-    console.log(localStorage.getItem('usernameStorage'));
-    console.log(localStorage.getItem('roleStorage'));
 
     // this.loginService.changeMessage(user3.username + ' ' + user3.role);
     // console.log(this.loginService.currentMessage);
