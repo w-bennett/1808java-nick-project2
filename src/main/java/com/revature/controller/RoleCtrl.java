@@ -17,24 +17,25 @@ import com.revature.service.UserServiceInt;
 
 @CrossOrigin(origins="http://localhost:4200")
 @RestController
-public class LoginCtrl {
+public class RoleCtrl {
 	
 	
 	@CrossOrigin(origins="http://localhost:4200")
-	@RequestMapping(value="/login", method=RequestMethod.POST, consumes= {"application/json"})
-	public String loginPost(@RequestBody User user, ModelMap modelMap, HttpSession sess) throws JsonProcessingException {
-		System.out.println(user.getUsername());
-		System.out.println(user.getPassword());
+	@RequestMapping(value="/role", method=RequestMethod.POST, consumes={"application/json"})
+	public String rolePost(@RequestBody User user, ModelMap modelMap, HttpSession sess) throws JsonProcessingException {
+		String role1 = (String) sess.getAttribute("role");
+		String user1 = (String) sess.getAttribute("username");
+		System.out.println(role1);
+		System.out.println(user1);
+
+		User user2 = new User();
+		user2.setUsername(user1);
 		
 		UserServiceInt userService = new UserService();
-		// System.out.println(userService.login(user).toString());
-		User user2 = userService.login(user);
-//		sess.setAttribute("role", userService.login(user).getRole());
-//		sess.setAttribute("username", userService.login(user).getUsername());
-//		System.out.println(sess.getAttribute("role"));
-//		System.out.println(sess.getAttribute("username"));
+		User user3 = userService.login(user2);
+		System.out.println(user3);
 		ObjectMapper om = new ObjectMapper();
-		return om.writeValueAsString(user2);
+		return om.writeValueAsString(user3);
 	}
 
 }
