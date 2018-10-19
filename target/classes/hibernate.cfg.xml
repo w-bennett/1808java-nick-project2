@@ -21,9 +21,9 @@
 		</property>
 
 		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.connection.autocommit">true</property>
+		<property name="hibernate.connection.pool_size">2</property>
 
-		<property name="connection.autocommit">true</property>
-		
 		<mapping class="com.revature.pojo.User" />
 
 	</session-factory>
