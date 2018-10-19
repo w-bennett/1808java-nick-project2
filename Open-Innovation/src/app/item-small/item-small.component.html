@@ -1,0 +1,38 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Article Title</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    Info about Article
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="showDiscussFunc()">Show Discussion</button>
+  </div>
+
+  <div id="dicuss" *ngIf="discussValue">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title1">Discussion</h4>
+    </div>
+    <div class="modal-body">
+      Comments go here
+    </div>
+    <div class="input-group">
+      <input id="commentArea1" type="text" class="form-control" placeholder="Comment textarea">
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="addCommentFunc()">Add Comment</button>
+      <button type="button" class="btn btn-outline-dark" (click)="hiddenDiscussFunc()">Hide Discussion</button>
+    </div>
+  </div>
+
+</ng-template>
+
+<div id="divButton">
+  <button id="button1" class="btn btn-lg btn-outline-danger" (click)="open(content)">
+    <h4>Energy</h4>
+    7 cents/kwh
+  </button>
+</div>

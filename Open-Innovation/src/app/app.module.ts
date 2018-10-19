@@ -10,13 +10,23 @@ import { BannerVisitorComponent } from './banner-visitor/banner-visitor.componen
 import { LoginModalComponent } from './login-modal/login-modal.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RegisterModalComponent } from './register-modal/register-modal.component';
+import { HomeComponent } from './home/home.component';
+import { TreeShellComponent } from './tree-shell/tree-shell.component';
+import { ItemSmallComponent } from './item-small/item-small.component';
+import { ItemBigComponent } from './item-big/item-big.component';
+import { ModalBasicComponent } from './modal-basic/modal-basic.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BannerVisitorComponent,
     LoginModalComponent,
-    RegisterModalComponent
+    RegisterModalComponent,
+    HomeComponent,
+    TreeShellComponent,
+    ItemSmallComponent,
+    ItemBigComponent,
+    ModalBasicComponent
   ],
   imports: [
     BrowserModule,
