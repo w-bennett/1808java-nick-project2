@@ -1,14 +1,16 @@
 export class Comment {
-    articleId: number;
+    commentid: number;
+    articleid: number;
     username: string;
     role: string;
+    body: string;
     upvotes: number;
     downvotes: number;
     stars: number;
-    body: string;
 
     constructor(articleId: number, username: string, role: string, body: string) {
-        this.articleId = articleId;
+        this.commentid = 1;
+        this.articleid = articleId;
         this.username = username;
         this.role = role;
         this.body = body;

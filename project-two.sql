@@ -15,3 +15,14 @@ create table "engineers" (
 select * from "engineers";
 insert into "engineers" ("username", "password", "role", "email", "upvotes", "downvotes", "stars")
     values ('tadrill', 'tadrill', 'ge', 'tadrill@gmail.com', '0', '0', '0');
+
+create table "comments" (
+    commentid serial primary key not null,
+    articleid integer not null,
+    username text not null,
+    role text not null,
+    body text not null,
+    upvotes integer not null,
+    downvotes integer not null,
+    stars integer not null
+);

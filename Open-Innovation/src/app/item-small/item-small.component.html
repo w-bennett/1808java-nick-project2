@@ -18,6 +18,9 @@
     </div>
     <div class="modal-body">
       Comments go here
+      <div *ngFor="let comment of list">
+        {{comment.body}}
+      </div>
     </div>
     <div class="input-group">
       <input id="commentArea1" type="text" class="form-control" placeholder="Comment textarea" [(ngModel)]="commentValue">

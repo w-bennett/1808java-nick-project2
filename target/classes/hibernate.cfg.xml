@@ -25,6 +25,8 @@
 		<property name="hibernate.connection.pool_size">2</property>
 
 		<mapping class="com.revature.pojo.User" />
+		<mapping class="com.revature.pojo.Comment" />
+		
 
 	</session-factory>
 </hibernate-configuration>
