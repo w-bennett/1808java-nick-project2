@@ -9,6 +9,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -22,7 +23,7 @@ public class GetCommentsCtrl {
 	
 	@CrossOrigin(origins="http://localhost:4200")
 	@RequestMapping(value="/getAllComments", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
-	public List<Comment> commentPost(ModelMap modelMap, HttpSession sess) throws JsonProcessingException {
+	public @ResponseBody List<Comment> commentPost(ModelMap modelMap, HttpSession sess) throws JsonProcessingException {
 
 		CommentServiceInt commentService = new CommentService();
 		

@@ -3,6 +3,8 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { Comment } from 'src/app/Comment';
 import { CommentList } from 'src/app/comment-list';
 import { CommentService } from 'src/app/comment.service';
+import { Observable } from 'rxjs';
+
 
 
 
@@ -16,7 +18,7 @@ export class ItemSmallComponent implements OnInit {
   closeResult: string;
   discussValue =  '';
   commentValue = '';
-  list: Comment[];
+  list: Comment[] = [];
 
   ngOnInit() {
   }
@@ -25,10 +27,7 @@ export class ItemSmallComponent implements OnInit {
 
   showDiscussFunc(): void {
     this.discussValue = 'true';
-    this.commentService.getAllComments()
-    .subscribe((data) => this.list = {
-        list:  data['list'];
-    });
+    this.commentService.getAllComments().subscribe((data) => { this.list = data; });
     console.log(this.list);
   }
 
