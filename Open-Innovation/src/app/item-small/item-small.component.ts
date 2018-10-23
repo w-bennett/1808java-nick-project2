@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { Comment } from 'src/app/Comment';
+import { CommentList } from 'src/app/comment-list';
+import { CommentService } from 'src/app/comment.service';
+import { Observable } from 'rxjs';
+
+
+
 
 @Component({
   selector: 'app-item-small',
@@ -10,20 +17,34 @@ export class ItemSmallComponent implements OnInit {
 
   closeResult: string;
   discussValue =  '';
+  commentValue = '';
+  list: Comment[] = [];
+  tempVarUser = '';
 
   ngOnInit() {
   }
 
-  constructor(private modalService: NgbModal) {}
+  constructor(private modalService: NgbModal, private commentService: CommentService) {}
 
   showDiscussFunc(): void {
     this.discussValue = 'true';
-    // document.getElementById('discuss').style.display = 'visible';
+    this.commentService.getAllComments().subscribe((data) => { this.list = data; });
+    console.log(this.list);
   }
 
   hiddenDiscussFunc(): void {
     this.discussValue = '';
-    // document.getElementById('discuss').style.display = 'visible';
+  }
+
+  addCommentFunc(): void {
+    // console.log(this.commentValue);
+    const articleId = 1;
+    const user2 = sessionStorage.getItem('usernameStorage');
+    const role2 = sessionStorage.getItem('roleStorage');
+
+    const comment = new Comment(articleId, user2, role2, this.commentValue);
+    console.log(comment);
+    this.commentService.postComment(comment).subscribe();
   }
 
   open(content) {
@@ -43,6 +64,15 @@ export class ItemSmallComponent implements OnInit {
     } else {
       return  `with: ${reason}`;
     }
+  }
+
+  checkUserComment(): boolean {
+      return false;
+  }
+
+  deleteComment(comment: Comment): void {
+    // console.log(id);
+    this.commentService.deleteComment(comment).subscribe();
   }
 
 }

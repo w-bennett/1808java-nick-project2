@@ -6,8 +6,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { LoginService } from 'src/app/login.service';
 
 
-
-
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json'
@@ -52,5 +50,28 @@ export class BannerVisitorComponent implements OnInit {
   upFunc(user4: User): void {
     this.username2 = user4.username;
     this.role2 = user4.role;
+  }
+
+  isRoleNullFunc(): boolean {
+    if (this.role2) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  isRoleFunc(): boolean {
+    if (this.role2) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  logoutFunc(): void {
+    sessionStorage.clear();
+    this.username2 = '';
+    this.role2 = '';
+    // location.replace('');
   }
 }

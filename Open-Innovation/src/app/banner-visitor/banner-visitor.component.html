@@ -1,7 +1,9 @@
 <div id="div1">
     <br><br><br>
     <h2>Open Innovation</h2>
-    <a routerLink="/home">Home</a> &nbsp;&nbsp; <a routerLink="/login">Login</a> &nbsp;&nbsp; 
-    <a routerLink="/register">Register</a> &nbsp;&nbsp;
-    <span>{{username2}} {{role2}}</span>
+    <a routerLink="/home">Home</a>
+    <a routerLink="/login" *ngIf="isRoleNullFunc()">Login</a>
+    <a href="" *ngIf="isRoleFunc()" (click)="logoutFunc()">Logout</a> 
+    <a routerLink="/register" *ngIf="isRoleNullFunc()">Register</a>
+    <span>&nbsp;&nbsp;&nbsp;&nbsp;{{username2}} &nbsp; role: {{role2}}</span>
 </div>

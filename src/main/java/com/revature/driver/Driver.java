@@ -1,14 +1,10 @@
 package com.revature.driver;
 
-import java.util.List;
-
-import org.hibernate.Session;
-import org.hibernate.query.Query;
-
 import com.revature.pojo.User;
+import com.revature.service.CommentService;
+import com.revature.service.CommentServiceInt;
 import com.revature.service.UserService;
 import com.revature.service.UserServiceInt;
-import com.revature.util.SessionUtil;
 
 public class Driver {
 
@@ -22,7 +18,10 @@ public class Driver {
 		user.setPassword(pw);
 		user.setUsername(un);
 		
-		System.out.println(userService.login(user).toString());
+		CommentServiceInt commentService = new CommentService();
+		System.out.println(commentService.readAllComments());
+		
+		//System.out.println(userService.login(user).toString());
 		
 //		Session sess = SessionUtil.getSession();
 //		String hql = "FROM User";

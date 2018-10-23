@@ -2,6 +2,8 @@ package com.revature.dao;
 
 import java.util.List;
 
+
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -9,16 +11,16 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
-import com.revature.pojo.User;
+import com.revature.pojo.Comment;
 import com.revature.util.SessionUtil;
 
-public class UserDao implements UserDaoInt {
+public class CommentDao implements CommentDaoInt {
 
 	private Session currentSession;
 	private Transaction currentTransaction;
 
-	public UserDao() {
-	
+	public CommentDao() {
+
 	}
 
 	public Session openCurrentSession() {
@@ -50,12 +52,12 @@ public class UserDao implements UserDaoInt {
 		SessionFactory sessionFactory = configuration.buildSessionFactory(builder.build());
 		return sessionFactory;
 	}
-	
+
 	public Session getCurrentSession() {
 		Session sess = SessionUtil.getSession();
 		return sess;
 	}
-	
+
 	public void setCurrentSession(Session currentSession) {
 		this.currentSession = currentSession;
 	}
@@ -68,31 +70,44 @@ public class UserDao implements UserDaoInt {
 		this.currentTransaction = currentTransaction;
 	}
 
-	
-	public User login(Integer userid) {
-		return (User) getCurrentSession().get(User.class, userid);
+	public void createComment(Comment c) {
+		getCurrentSession().save(c);
 	}
 
-	
-	public Integer getUserId(User user) {
-		Session sess = getCurrentSession();
-		String hql = "FROM User WHERE username = :un AND password = :pw";
-		Query query = sess.createQuery(hql);
-		query.setParameter("un", user.getUsername());
-		query.setParameter("pw", user.getPassword());
-		
-		List<User> users = query.list();
-		if(!users.isEmpty()) {
-			User user2 = users.get(0);
-			return user2.getUserid();
+	public List<Comment> readCommentsByArticleId(Integer id) {
+		return null;
+	}
+
+	public Comment readCommentByCommentId(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Comment> readAllComments() {
+		return getCurrentSession().createCriteria(Comment.class).list();
+	}
+
+	public void updateComment(Comment c) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void deleteComment(Comment c) {
+		System.out.println("IN DAO DELETE WHY U NO DELETE ??");
+		Transaction transaction = getCurrentSession().beginTransaction();
+		try {
+			Session sess = getCurrentSession();
+			String hql = "DELETE FROM Comment WHERE commentid = :cid";
+			Query query = sess.createQuery(hql);
+			query.setParameter("cid", c.getCommentid());
+			query.executeUpdate();
+			transaction.commit();
+		} catch (Throwable t) {
+			transaction.rollback();
+			t.printStackTrace();
 		}
-		else
-			return 0;
-	}
 
-	public void register(User user) {
-		getCurrentSession().save(user);
+		System.out.println("AFTER DAO DELETE WTF");
 	}
-	
 
 }
