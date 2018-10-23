@@ -19,6 +19,7 @@ export class ItemSmallComponent implements OnInit {
   discussValue =  '';
   commentValue = '';
   list: Comment[] = [];
+  tempVarUser = '';
 
   ngOnInit() {
   }
@@ -63,6 +64,15 @@ export class ItemSmallComponent implements OnInit {
     } else {
       return  `with: ${reason}`;
     }
+  }
+
+  checkUserComment(): boolean {
+      return false;
+  }
+
+  deleteComment(comment: Comment): void {
+    // console.log(id);
+    this.commentService.deleteComment(comment).subscribe();
   }
 
 }

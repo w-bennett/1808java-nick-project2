@@ -23,6 +23,6 @@ public interface CommentServiceInt {
 	public void updateComment(Comment c);
 	
 	// delete a comment by id
-	public void deleteCommentByCommentId(Integer id);
+	public void deleteComment(Comment c);
 
 }

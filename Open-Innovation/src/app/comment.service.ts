@@ -20,6 +20,7 @@ export class CommentService {
 
   url1 = 'http://localhost:8080/Open_Innovation/addcomment';
   url2 = 'http://localhost:8080/Open_Innovation/getAllComments';
+  url3 = 'http://localhost:8080/Open_Innovation/deletecomment';
 
   constructor(private http: HttpClient) { }
 
@@ -30,6 +31,10 @@ export class CommentService {
 
   getAllComments(): Observable<Comment[]> {
     return this.http.get<Comment[]>(this.url2);
+  }
+
+  deleteComment(comment: Comment): Observable<Comment> {
+    return this.http.post<Comment>(this.url3, comment, httpOptions);
   }
 
 }

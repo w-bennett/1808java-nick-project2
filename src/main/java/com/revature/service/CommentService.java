@@ -56,9 +56,12 @@ public class CommentService implements CommentServiceInt {
 
 	}
 
-	public void deleteCommentByCommentId(Integer id) {
-		// TODO Auto-generated method stub
+	public void deleteComment(Comment c) {
+		((CommentDao) commentDao).openCurrentSession();
 
+		commentDao.deleteComment(c);
+
+		((CommentDao) commentDao).closeCurrentSession();
 	}
 
 }

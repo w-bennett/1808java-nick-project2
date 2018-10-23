@@ -16,6 +16,6 @@ public interface CommentDaoInt {
 	
 	public void updateComment(Comment c);
 	
-	public void deleteCommentByCommentId(Integer id);
+	public void deleteComment(Comment c);
 	
 }

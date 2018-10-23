@@ -21,7 +21,7 @@ export class LoginModalComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loginService.currentMessage.subscribe(message => this.message = message);
+    // this.loginService.currentMessage.subscribe(message => this.message = message);
   }
 
   loginFunc(): void {

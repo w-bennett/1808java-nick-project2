@@ -17,9 +17,13 @@
       <h4 class="modal-title" id="modal-basic-title1">Discussion</h4>
     </div>
     <div class="modal-body">
-      Comments go here
-      <div *ngFor="let comment of list">
-        {{comment.body}}
+      Comments:<br><br>
+      <div *ngFor="let comment of list" class="commentDivs">
+        {{comment.username}} {{comment.role}} {{comment.upvotes}} {{comment.downvotes}} {{comment.stars}} <br>
+        {{comment.body}}<br>
+        <ng-container [ngTemplateOutlet]="comment.username == this.user2 ?complexLink : simpleLink"
+         [ngTemplateOutletContext]="{comment:comment}"></ng-container>
+
       </div>
     </div>
     <div class="input-group">
@@ -31,6 +35,13 @@
     </div>
   </div>
 
+</ng-template>
+
+<ng-template #simpleLink let-comment='comment'>
+  <button (click)="deleteComment(comment)">Delete</button>
+</ng-template>
+
+<ng-template #complexLink let-comment='comment'>
 </ng-template>
 
 <div id="divButton">
