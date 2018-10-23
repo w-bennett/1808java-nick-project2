@@ -1,12 +1,14 @@
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Article Title</h4>
+    <h4 class="modal-title" id="modal-basic-title">Energy &#9728;</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">
-    Info about Article
+    Energy is a commodity and measured in SI units of Joules. Solar power is the leading candidate for
+     a permanent, ethical, and reliable source of industrial energy. Solar panels have energy itself
+     as an input in order to overcome thermodynamic barriers to poly and mono crystalline silicon formation.
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-outline-dark" (click)="showDiscussFunc()">Show Discussion</button>
@@ -19,11 +21,10 @@
     <div class="modal-body">
       Comments:<br><br>
       <div *ngFor="let comment of list" class="commentDivs">
-        {{comment.username}} {{comment.role}} {{comment.upvotes}} {{comment.downvotes}} {{comment.stars}} <br>
+        username: {{comment.username}} role: {{comment.role}} uv: {{comment.upvotes}} dv:{{comment.downvotes}} st:{{comment.stars}} <br>
         {{comment.body}}<br>
         <ng-container [ngTemplateOutlet]="comment.username == this.user2 ?complexLink : simpleLink"
          [ngTemplateOutletContext]="{comment:comment}"></ng-container>
-
       </div>
     </div>
     <div class="input-group">
@@ -38,6 +39,7 @@
 </ng-template>
 
 <ng-template #simpleLink let-comment='comment'>
+  <button (click)="editComment(comment)">Edit</button>
   <button (click)="deleteComment(comment)">Delete</button>
 </ng-template>
 
